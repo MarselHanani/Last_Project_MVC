@@ -1,0 +1,41 @@
+﻿@model RegisterViews
+
+@{
+    ViewBag.Title = "registration";
+    Layout = "~/Views/Shared/_SecurityLayout.cshtml";
+}
+<div class="wrapper">
+    <h2>Registration</h2>
+    <form asp-action="Register" method="post">
+        <div class="input-box">
+            <input asp-for="Fname" type="text" placeholder="Enter your First name" required>
+            <span asp-validation-for="Fname" class="text-danger"></span>
+        </div>
+        <div class="input-box">
+            <input asp-for="Lname" type="text" placeholder="Enter your Last name" required>
+            <span asp-validation-for="Lname" class="text-danger"></span>
+        </div>
+        <div class="input-box">
+            <input asp-for="Email" type="text" placeholder="Enter your Last name" required>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="input-box">
+            <input asp-for="Password" type="password" placeholder="Create password" required>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="input-box">
+            <input asp-for="CPassword" type="password" placeholder="Confirm password" required>
+            <span asp-validation-for="CPassword" class="text-danger"></span> 
+        </div>
+        <div class="policy">
+            <input asp-for="isAgree" type="checkbox">
+            <h3>I accept all terms & condition</h3>
+        </div>
+        <div class="input-box button">
+           <button type="submit" class="btn btn-primary form-control" >Register Now</button>
+        </div>
+        <div class="text">
+            <h3>Already have an account? <a asp-action="Login">Login now</a></h3>
+        </div>
+    </form>
+</div>

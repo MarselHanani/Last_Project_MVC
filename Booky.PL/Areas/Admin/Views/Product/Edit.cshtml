@@ -1,0 +1,28 @@
+﻿@model ProductViewModel
+
+@{
+    ViewBag.Title = "Update Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="border p-3 mt-4">
+        <partial name="PartialViews/CreateEditView"/>
+        <div class="row d-flex  justify-content-between">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-success form-control"><i class="bi bi-pencil-square">Update</i></button>
+            </div>
+            <div class="col-md-3 col-6">
+                <a class="btn btn-primary form-control" asp-action="Index" asp-controller="Product" >Back to list</a>
+            </div>
+        </div>
+    <div class="col-2">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <div><img src="~/files/images/@Model.ImageUrl" class="img-thumbnail"/></div>
+            <input type="hidden" asp-for="ImageUrl" value="@Model.ImageUrl"/>
+        }
+    </div>
+    </div>
+</form>

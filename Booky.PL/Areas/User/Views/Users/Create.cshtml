@@ -1,0 +1,46 @@
+﻿@model UsersViews
+
+@{
+    ViewBag.Title = "Edit Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row mb-3 p-1">
+            <label asp-for="Fname">First Name</label>
+            <input type="text" asp-for="Fname" class="form-control"/>
+            <span class="text-danger" asp-validation-for="Fname"></span>
+        </div>
+        <div class="row">
+            <label asp-for="Lname">Last Name</label>
+            <input asp-for="Lname" class="form-control"/>
+            <span class="text-danger" asp-validation-for="Lname"></span>
+        </div>
+        <div class="row">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control"/>
+            <span class="text-danger" asp-validation-for="Email"></span>
+        </div>
+        <div class="row">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" type="password" class="form-control"/>
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+       <div class="mt-2">
+           <label asp-for="Roles" class="p-0">Roles</label>
+            <select asp-for="Roles" asp-items="@ViewBag.roles">
+               <option selected disabled>--Select Roles--</option>
+           </select>
+           <span class="text-danger" asp-validation-for="Roles"></span>
+       </div> 
+        <div class="row d-flex  justify-content-between">
+            <div class="col-6 col-md-3">
+                <button type="submit" asp-action="Create"  class="btn btn-success form-control"><i class="bi bi-pencil-square">Create</i></button>
+            </div>
+            <div class="col-md-3 col-6">
+                <a class="btn btn-primary form-control" asp-action="Index" asp-controller="Users" >Back to list</a>
+            </div>
+        </div>
+    </div>
+</form>

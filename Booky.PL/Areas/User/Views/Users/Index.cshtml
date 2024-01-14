@@ -1,0 +1,41 @@
+﻿@model IEnumerable<UsersViews> 
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-6">
+        <h2>User list</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-action="Create" asp-controller="Users" class=" btn btn-primary"><i class="bi bi-plus-circle"> Add New User</i></a>
+    </div>
+</div>
+@if (Model.Count() > 0)
+{
+    <table id="tblData" class="table-bordered table border-3 border-dark">
+        <thead class="border-2">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    </table>
+}else
+{
+    <div>No Users Exist</div> 
+}
+@section Scripts
+{
+    <script src="~/js/Users.js"></script>
+    <script>
+        $(document).ready(function (){
+            loadDataTable()
+        })
+    </script>
+}

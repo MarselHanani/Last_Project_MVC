@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>the password was enterd is not correct</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.DeleteError))
+{
+    <p class="text-danger">@ViewBag.DeleteError</p>
+}
+
+<a href="javascript:history.back()">Back to Previous Page</a>

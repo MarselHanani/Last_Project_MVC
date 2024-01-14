@@ -1,0 +1,28 @@
+﻿@model ProductViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row mb-3 p-1">
+            <label asp-for="Title">Name Product</label>
+            <input type="text" asp-for="Title" class="form-control" disabled/>
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+        <div class="row">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control" disabled/>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="row d-flex  justify-content-between">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger form-control"><i class="bi bi-trash3">Edit</i></button>
+            </div>
+            <div class="col-md-3 col-6">
+                <a class="btn btn-primary form-control" asp-action="Index" asp-controller="Product" >Back to list</a>
+            </div>
+        </div>
+    </div>
+</form>
